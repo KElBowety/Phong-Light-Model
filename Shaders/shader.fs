@@ -12,7 +12,7 @@ uniform sampler2D theTexture;
 void main()
 {
 	vec3 N = normalize(normalInterp);
-  	vec3 L = normalize(vec3(0.2, -0.5, 0.9) - vertPos);
+  	vec3 L = normalize(vec3(0.5, -0.5, 0.8) - vertPos);
 
 	float lambertian = max(dot(N, L), 0.0);
   	float specular = 0.0;
@@ -24,8 +24,8 @@ void main()
     		specular = pow(specAngle, 80);
   	}
 
-	colour = vec4(vec3(0.250, 0.129, 0.019) +
-                      lambertian * vec3(0.8, 0.4, 0.0)+
+	colour = vec4(vec3(0.023, 0.129, 0.435) +
+                      lambertian * vec3(0.815, 0.243, 0.427)+
                       specular * vec3(1.0, 1.0, 1.0), 1.0);
 	//colour = texture(theTexture, TexCoord);
 }
